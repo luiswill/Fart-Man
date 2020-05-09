@@ -1,75 +1,29 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://GFX/HUD/bannerHanging.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://GFX/HUD/lifes.png" type="Texture" id=3]
-[ext_resource path="res://GFX/HUD/coin_bronze.png" type="Texture" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 30
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 2 )
+[ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=5]
 
 [node name="GUI" type="CanvasLayer" groups=[
 "GUI",
 ]]
 
-[node name="Control" type="Control" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -183.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -134.0
-margin_right = 134.0
-margin_bottom = 59.0
-texture = ExtResource( 1 )
-stretch_mode = 5
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_bottom = 183.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/TextureRect"]
-anchor_right = 1.0
-margin_bottom = 81.0
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CoinCount" type="Label" parent="Control/TextureRect/HBoxContainer"]
-margin_right = 72.0
-margin_bottom = 81.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 1 )
-text = "0
-"
-align = 2
-
-[node name="CoinIcon" type="TextureRect" parent="Control/TextureRect/HBoxContainer"]
-margin_left = 76.0
-margin_right = 136.0
-margin_bottom = 81.0
-texture = ExtResource( 4 )
-
-[node name="LifeCount" type="Label" parent="Control/TextureRect/HBoxContainer"]
-margin_left = 140.0
-margin_right = 212.0
-margin_bottom = 81.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 1 )
-text = "0
-"
-align = 2
-
-[node name="LifeIcon" type="TextureRect" parent="Control/TextureRect/HBoxContainer"]
-margin_left = 216.0
-margin_right = 268.0
-margin_bottom = 81.0
-texture = ExtResource( 3 )
+[node name="Joystick" parent="." instance=ExtResource( 5 )]
+anchor_right = 0.0
+rect_min_size = Vector2( 400, 400 )
+rect_scale = Vector2( 2, 2 )
+joystick_mode = 1
+dead_zone = 0.0

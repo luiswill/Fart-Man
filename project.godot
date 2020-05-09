@@ -8,22 +8,41 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "Joystick",
+"language": "GDScript",
+"path": "res://Joystick/Joystick.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Test/Player.gd"
+} ]
 _global_script_class_icons={
-
+"Joystick": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Fart Man"
-run/main_scene="res://Player/Levels/LevelTemplate.tscn"
+run/main_scene="res://Scenes/Levels/VillageLevel.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+EVENTS="*res://scripts/EVENTS.gd"
 
 [display]
 
-window/size/width=400
-window/size/height=640
+window/size/width=800
+window/size/height=400
 window/size/resizable=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 

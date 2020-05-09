@@ -15,7 +15,7 @@ radius = 71.5784
 height = 55.6488
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 191.502, 309.639 )
+position = Vector2( 192.502, 355.639 )
 scale = Vector2( 0.354714, 0.334688 )
 collision_mask = 14
 script = ExtResource( 2 )
@@ -89,6 +89,7 @@ shape = SubResource( 1 )
 
 [node name="PlayerAnimation" parent="." instance=ExtResource( 1 )]
 animation = "idle"
+frame = 0
 playing = true
 script = ExtResource( 3 )
 
@@ -99,4 +100,3 @@ volume_db = -35.0
 [node name="HurtSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -35.0
-[connection signal="animate" from="." to="PlayerAnimation" method="_on_Player_animate"]

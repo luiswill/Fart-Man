@@ -6,7 +6,7 @@
 [ext_resource path="res://GFX/Players/bunny2_walk2.png" type="Texture" id=4]
 [ext_resource path="res://GFX/Players/bunny2_stand.png" type="Texture" id=5]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 5 ) ],
 "loop": true,
@@ -26,6 +26,6 @@ animations = [ {
 
 [node name="PlayerAnimation" type="AnimatedSprite"]
 scale = Vector2( 1, 1.01979 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "walk"
 frame = 1
