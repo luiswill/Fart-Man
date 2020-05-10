@@ -27,7 +27,6 @@ __meta__ = {
 position = Vector2( 500, 0 )
 scale = Vector2( 1, 1.01979 )
 current = true
-zoom = Vector2( 3, 3 )
 limit_left = 0
 smoothing_enabled = true
 
@@ -89,7 +88,6 @@ shape = SubResource( 1 )
 
 [node name="PlayerAnimation" parent="." instance=ExtResource( 1 )]
 animation = "idle"
-frame = 0
 playing = true
 script = ExtResource( 3 )
 

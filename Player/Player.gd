@@ -17,8 +17,6 @@ func _physics_process(delta):
 	apply_gravity()
 	jump()
 	animate()
-	print("Motion", motion)
-	
 	move_and_slide(motion, UP)
 	
 func _ready():
