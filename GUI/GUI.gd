@@ -5,7 +5,9 @@ func _ready():
 	#$Control/TextureRect/HBoxContainer/LifeCount.text = "3"
 	
 	
-func update_GUI(lives_left, coins):
+func update_GUI(beans):
 #	$Control/TextureRect/HBoxContainer/LifeCount.text = str(lives_left)
 #	$Control/TextureRect/HBoxContainer/CoinCount.text = str(coins)
+	print("BEans now  : ", beans)
+	$Inventory/Bean/BeansAmount.text = str(beans)
 	pass

@@ -15,7 +15,7 @@ onready var joystick_move := $UI/JoystickMove
 
 func _physics_process(delta):
 	apply_gravity()
-	animate()
+	#animate()
 	move_and_slide(motion, UP)
 	
 func _ready():
@@ -23,11 +23,11 @@ func _ready():
 	EVENTS.connect("jump_character", self, "jump")
 	
 func _move(movement : Vector2) -> void:
-	
-	var moving_direction : Vector2 = movement
-	moving_direction.x *=  SPEED
-	moving_direction.y = 0
-	motion = moving_direction
+	if is_on_floor():
+		var moving_direction : Vector2 = movement
+		moving_direction.x *=  SPEED
+		moving_direction.y = 0
+		motion = moving_direction
 	
 func jump():
 	if is_on_floor():
@@ -37,7 +37,7 @@ func jump():
 		
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
-		get_tree().call_group("Gamestate", "end_game")
+		get_tree().call_group("Gamestate", "end_game", position.x)
 	
 	if is_on_floor() and motion.y > 0:
 		motion.y = 0
@@ -65,6 +65,8 @@ func boost():
 	motion.x = SPEED
 	motion.y -= JUMP_SPEED * BOOST_MULTIPLAYER
 	center_camera()
+		
+	print("TRAnsform x:  ", get_transform().x)
 	
 	
 func center_camera():

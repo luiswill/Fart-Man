@@ -1,36 +1,71 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GUI/TextureButton.gd" type="Script" id=1]
 [ext_resource path="res://Joystick/joystick_circle.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Food/bean/bean.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
-size = 45
+size = 25
+font_data = ExtResource( 4 )
 
 [node name="GUI" type="CanvasLayer" groups=[
 "GUI",
 ]]
+script = ExtResource( 6 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Inventory" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 0, 400 )
+margin_bottom = 125.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
-margin_left = 1169.0
-margin_top = 199.0
-margin_right = 1170.0
-margin_bottom = 200.0
+[node name="Bean" type="HBoxContainer" parent="Inventory"]
+margin_right = 288.0
+margin_bottom = 125.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Money" type="Label" parent="CenterContainer/HBoxContainer"]
-margin_right = 1.0
-margin_bottom = 1.0
+[node name="TextureRect" type="TextureRect" parent="Inventory/Bean"]
+margin_right = 150.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 150, 125 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+
+[node name="BeansLabel" type="Label" parent="Inventory/Bean"]
+margin_left = 154.0
+margin_top = -1.0
+margin_right = 234.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 50, 125 )
+custom_fonts/font = SubResource( 2 )
+text = "BEANS : 
+"
+align = 1
+valign = 1
+
+[node name="BeansAmount" type="Label" parent="Inventory/Bean"]
+margin_left = 238.0
+margin_top = 37.0
+margin_right = 288.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0

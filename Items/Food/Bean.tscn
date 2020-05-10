@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Items/ItemTemplate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Items/Food/Bean.gd" type="Script" id=2]
+
+[node name="Bean" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" parent="." index="1"]
+scale = Vector2( 0.25, 0.25 )
+frame = 1

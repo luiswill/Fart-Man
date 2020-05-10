@@ -59,13 +59,7 @@ __meta__ = {
 [node name="ShopContent" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 304.0
 margin_right = 2340.0
-margin_bottom = 313.0
-
-[node name="ItemList" type="ItemList" parent="VBoxContainer/ShopContent"]
-margin_right = 2340.0
-margin_bottom = 9.0
-auto_height = true
-max_columns = 5
+margin_bottom = 304.0
 
 [node name="BackButton" parent="." instance=ExtResource( 2 )]
 script = ExtResource( 3 )

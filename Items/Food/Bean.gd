@@ -1,17 +1,9 @@
-extends Node2D
-
-
-var taken = false
-
+extends "res://Items/ItemTemplate.gd"
 
 func _on_Area2D_body_entered(body):
 	if not taken:
 		taken = true
 		$AnimationPlayer.play("Die")
 		$AudioStreamPlayer2D.play()
-		get_tree().call_group("Gamestate", "coin_up")
+		get_tree().call_group("Gamestate", "bean_up")
 
-
-
-func die():
-	queue_free()
