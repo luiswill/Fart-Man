@@ -72,7 +72,6 @@ func _on_Background_gui_input(event: InputEvent) -> void:
 		if joystick_mode == Joystick_mode.FOLLOWING:
 			_following(vector)
 	EVENTS.emit_signal("update_movement", output)
-	
 func _set_handle_center_position(new_position : Vector2) -> void:
 	_handle.rect_position = new_position - _handle.rect_size / 2
 
@@ -85,8 +84,6 @@ func _update_output(vector: Vector2) -> void:
 	output = vector.normalized()
 	if vector_mode == Vector_mode.REAL and vector.length() < clamp_size:
 		output *= (vector.length() - dead_size) / (clamp_size - dead_size)
-		
-	EVENTS.emit_signal("update_movement", output)
 	_set_handle_center_position(output * clamp_size + _background.rect_size / 2)
 
 func _following(vector: Vector2) -> void:
@@ -107,3 +104,7 @@ func _directional_vector(vector: Vector2, n_directions: int, simmetry_angle := P
 	angle *= PI / n_directions
 	angle -= simmetry_angle
 	return Vector2(cos(angle), sin(angle)) * vector.length()
+
+
+func _on_JumpButton_pressed():
+	pass # Replace with function body.

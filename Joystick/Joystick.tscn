@@ -26,7 +26,8 @@ texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_use_anchors_": false
 }
 
 [node name="Handle" type="TextureRect" parent="Background"]

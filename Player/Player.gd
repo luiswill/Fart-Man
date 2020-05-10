@@ -8,19 +8,19 @@ const SPEED : int = 1500
 const GRAVITY = 300
 const JUMP_SPEED = 3000
 const WORLD_LIMIT = 3000
-const BOOST_MULTIPLAYER = 2
+const BOOST_MULTIPLAYER = 10
 
 onready var joystick_move := $UI/JoystickMove
 
 
 func _physics_process(delta):
 	apply_gravity()
-	jump()
 	animate()
 	move_and_slide(motion, UP)
 	
 func _ready():
 	EVENTS.connect("update_movement", self, "_move")
+	EVENTS.connect("jump_character", self, "jump")
 	
 func _move(movement : Vector2) -> void:
 	
@@ -30,7 +30,7 @@ func _move(movement : Vector2) -> void:
 	motion = moving_direction
 	
 func jump():
-	if Input.is_action_pressed("ui_up") and is_on_floor():
+	if is_on_floor():
 		motion.y -= JUMP_SPEED
 		$JumpSFX.play()
 
@@ -62,4 +62,11 @@ func hurt():
 func boost():
 	position.y -= 1
 	yield(get_tree(), "idle_frame")
-	motion.y = JUMP_SPEED * BOOST_MULTIPLAYER
+	motion.x = SPEED
+	motion.y -= JUMP_SPEED * BOOST_MULTIPLAYER
+	center_camera()
+	
+	
+func center_camera():
+	$Camera2D.smoothing_enabled = false
+	$Camera2D.position.x = 0

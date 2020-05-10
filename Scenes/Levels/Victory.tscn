@@ -5,10 +5,10 @@
 [node name="Victory" instance=ExtResource( 1 )]
 
 [node name="VBoxContainer" parent="CenterContainer" index="0"]
-margin_left = 276.0
-margin_top = 124.0
-margin_right = 524.0
-margin_bottom = 276.0
+margin_left = 1046.0
+margin_top = 464.0
+margin_right = 1294.0
+margin_bottom = 616.0
 
 [node name="Label" parent="CenterContainer/VBoxContainer" index="0"]
 margin_right = 248.0

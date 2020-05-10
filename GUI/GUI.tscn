@@ -1,5 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://GUI/TextureButton.gd" type="Script" id=1]
+[ext_resource path="res://Joystick/joystick_circle.png" type="Texture" id=2]
 [ext_resource path="res://Joystick/Joystick.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
@@ -46,8 +48,24 @@ __meta__ = {
 }
 
 [node name="Joystick" parent="." instance=ExtResource( 5 )]
+anchor_top = 1.0
 anchor_right = 0.0
+margin_top = -400.0
+margin_right = 400.0
+margin_bottom = 0.0
 rect_min_size = Vector2( 400, 400 )
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 0, 250 )
 joystick_mode = 1
-dead_zone = 0.0
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 2078.0
+margin_top = 810.0
+margin_right = 2118.0
+margin_bottom = 850.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture_normal = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
